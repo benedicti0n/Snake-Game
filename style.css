@@ -4,3 +4,21 @@
     box-sizing: border-box;
 }
 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+#snakeField{
+    border: 2px solid black;
+}
+h1{
+    font-size: 70px;
+}
+button{
+    height: 80px;
+    width: 100px;
+}
