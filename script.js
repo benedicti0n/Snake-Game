@@ -59,7 +59,12 @@ function checkGameOver(){
         if(snake[i].x == snake[0].x && snake[i].y == snake[0].y) running = false;
     }
 };
-function displayGameOver(){}; 
+function displayGameOver(){
+    ctx.fillStyle = 'black';
+    ctx.textAlign = 'center';
+    ctx.fillText("Game Over!", gameWidth/2, gameHeight/2);
+    running = false;
+}; 
 
 function nextTick(){
     if(running){
