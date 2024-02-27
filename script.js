@@ -33,10 +33,14 @@ function displayGameOver(){};
 function nextTick(){};
 function clearBoard(){};
 
-function randomFood(){
-
+function randomFood(min, max){
+    const randomNum = Math.round((Math.random() * (max-min) + min) /unitSize) * unitSize;
+    return randomNum;
 }
-function createFood(){};
+function createFood(){
+    xFood = randomFood(0, gameWidth-unitSize);
+    yFood = randomFood(0, gameHeight-unitSize);
+};
 function drawFood(){};
 
 function moveSnake(){};
