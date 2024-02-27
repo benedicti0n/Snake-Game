@@ -4,6 +4,7 @@ const ctx = snakeField.getContext('2d');
 
 const gameWidth = snakeField.width;
 const gameHeight = snakeField.height;
+const boardBackground = 'white';
 const snakeColor = "lightgreen";
 const snakeBorder= "black";
 const foodColor = "red";
@@ -53,7 +54,10 @@ function nextTick(){
         displayGameOver();
     }
 };
-function clearBoard(){};
+function clearBoard(){
+    ctx.fillStyle = boardBackground;
+    ctx.fillRect(0, 0, gameHeight, gameWidth);
+};
 
 function randomFood(min, max){
     const randomNum = Math.round((Math.random() * (max-min) + min) /unitSize) * unitSize;
