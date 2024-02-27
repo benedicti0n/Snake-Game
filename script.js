@@ -18,13 +18,13 @@ let yFood;
 let score = 0;
 
 let snake = [
-    {x: 3, y:3},
-    {x: 2, y:2},
-    {x: 1, y:1},
+    {x: unitSize*3, y:0},
+    {x: unitSize*2, y:0},
+    {x: unitSize*1, y:0},
     {x: 0, y:0}
 ]
 
-// gameStart();
+gameStart();
 // reset();
 createFood();
 drawFood();
@@ -73,5 +73,13 @@ function drawFood(){
 };
 
 function moveSnake(){};
-function drawSnake(){};
+function drawSnake(){
+    ctx.fillStyle = snakeColor;
+    ctx.strokeStyle = snakeBorder;
+
+    snake.forEach(snakePart => {
+        ctx.fillRect(snakePart.x, snakePart.y, unitSize, unitSize);
+        ctx.strokeRect(snakePart.x, snakePart.y, unitSize, unitSize);
+    })
+};
 function changeDirection(){};
