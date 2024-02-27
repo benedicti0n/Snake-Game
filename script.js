@@ -20,7 +20,7 @@ let score = 0;
 let snake = [
     {x: unitSize*3, y:0},
     {x: unitSize*2, y:0},
-    {x: unitSize*1, y:0},
+    {x: unitSize, y:0},
     {x: 0, y:0}
 ]
 
@@ -72,7 +72,20 @@ function drawFood(){
     ctx.fillRect(xFood, yFood, unitSize, unitSize);
 };
 
-function moveSnake(){};
+function moveSnake(){
+    const head = {x: snake[0].x + xVelocity,
+                  y: snake[0].y + yVelocity
+                }
+
+    snake.unshift(head);
+
+    if(snake[0].x == xFood && snake[0].y == yFood){
+        scoreText.textContent = score+1;
+        createFood();
+    } else{
+        snake.pop();
+    }
+};
 function drawSnake(){
     ctx.fillStyle = snakeColor;
     ctx.strokeStyle = snakeBorder;
