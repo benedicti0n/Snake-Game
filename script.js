@@ -23,14 +23,36 @@ let snake = [
     {x: 0, y:0}
 ]
 
-reset();
+// gameStart();
+// reset();
+createFood();
+drawFood();
 
-function gameStart(){};
+function gameStart(){
+    running = true;
+    scoreText.textContent = score;
+    createFood();
+    drawFood();
+    nextTick();
+};
 function resetGame(){};
 function checkGameOver(){};
-function displayGameOver(){};
+function displayGameOver(){}; 
 
-function nextTick(){};
+function nextTick(){
+    if(running){
+        setTimeout(() => {
+            clearBoard();
+            drawFood();
+            moveSnake();
+            drawSnake();
+            checkGameOver();
+            nextTick();
+        }, 100);
+    } else{
+        displayGameOver();
+    }
+};
 function clearBoard(){};
 
 function randomFood(min, max){
@@ -43,7 +65,7 @@ function createFood(){
 };
 function drawFood(){
     ctx.fillStyle = foodColor;
-    ctx.fillRect(xFood, yFood, unitSize, unitSize)
+    ctx.fillRect(xFood, yFood, unitSize, unitSize);
 };
 
 function moveSnake(){};
