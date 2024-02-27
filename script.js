@@ -41,7 +41,10 @@ function createFood(){
     xFood = randomFood(0, gameWidth-unitSize);
     yFood = randomFood(0, gameHeight-unitSize);
 };
-function drawFood(){};
+function drawFood(){
+    ctx.fillStyle = foodColor;
+    ctx.fillRect(xFood, yFood, unitSize, unitSize)
+};
 
 function moveSnake(){};
 function drawSnake(){};
